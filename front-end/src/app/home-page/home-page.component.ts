@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from '../auth.service';
+import { ArticleService } from '../article.service';
+import { Article } from '../models';
 
 @Component({
   selector: 'app-home-page',
@@ -6,5 +10,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+  articles: Article[] = [];
 
-}
+
+  constructor(private articleService: ArticleService){}
+
+  ngOnInit(): void {
+
+    this.articleService.getArticles().subscribe((data) => {
+      console.log(data);
+      this.articles = data;
+      });
+    }
+
+  }
