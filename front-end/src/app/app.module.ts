@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TimeAgoPipe } from './time-ago.pipe';
 
 
 
@@ -24,7 +25,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HomePageComponent,
     LoginComponent,
     DetailPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
