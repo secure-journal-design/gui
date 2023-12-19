@@ -14,4 +14,14 @@ export class ArticleService {
   getArticles(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+
+  searchByTopic(topic: string): Observable<any> {
+    const params = { topic: topic };
+    return this.http.get<any>(this.apiUrl + 'by_topic/', { params: params });
+  }
+
+  getArticle(id: number): Observable<any> {
+    return this.http.get<any>(this.apiUrl + id);
+  }
+
 }

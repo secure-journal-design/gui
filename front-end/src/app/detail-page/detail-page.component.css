@@ -1,0 +1,31 @@
+.page {
+    margin-top: 5px;
+  }
+  
+.logo-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: xx-large;
+}
+
+.logo {
+    margin-left: 40px;
+    margin-right: auto;
+}
+
+.pg {
+    margin-top:30px;
+}
+
+.cnt {
+    min-height: 100px;
+}
+
+.spacer {
+    min-height: 40vh;
+}
+
+.container {
+    text-align: center;
+}

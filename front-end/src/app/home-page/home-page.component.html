@@ -1,31 +1,46 @@
 <div class="container-fluid page">
   <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand logo" href="#">
-          <h3>Secure Journal Design</h3>
+          <h3 class="logo-title">Secure Journal Design</h3>
       </a>
       <div class="row">
           <div class="d-flex">
-              <button class="btn btn-dark sign-up-btn" (click)="open(login)" >Sign in</button>
-              <!-- <button class="btn btn-dark sign-up-btn" (click)="open(register,login)" >Sign up</button>  -->
+            <!--<div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-dark search-btn mr-2" ngbDropdownToggle>Search</button>
+              
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic">
+                <button class="btn btn-light" ngbDropdownItem (click)="selectOption('topic')">By topic</button>
+                <button class="btn btn-light" ngbDropdownItem (click)="selectOption('author')">By author</button>
+                <button class="btn btn-light" ngbDropdownItem (click)="selectOption('')">Close</button>
+              </div>
+            </div>-->
+              <button *ngIf="!showSearchBar" class="btn btn-outline-dark search-btn" (click)="showSearchBar = !showSearchBar">Search by topic</button>
+              <button *ngIf="showSearchBar" class="btn btn-danger search-btn" (click)="goBack()">Close</button>
+              <!--<button class="btn btn-dark sign-up-btn" (click)="open(login)" >Sign in</button>-->
           </div>
       </div>
   </nav>
   <div class="pg">
-      <div *ngIf="articles.length > 0" class=" mb-4 top-container">
-          <div class="container-fluid py-3 row ">
+    <!--A div with an input and a button on the same line-->
+    <div *ngIf="showSearchBar" class="input-group mb-3 search-input">
+      <input type="text" class="form-control" placeholder="Search articles by topic" [(ngModel)]="searchTerm" (keyup.enter)="search()">
+      <button class="btn btn-outline-secondary" type="button" (click)="search()">Search</button>
+    </div>  
+      <div *ngIf="articles.length > 0" class="top-container mb-4" (click)="goToArticle(articles[0].id)">      
+          <div *ngIf="!showSearchBar" class="container-fluid py-3">
             <img [src]="articles[0].picture_url" class="top-img" alt="Image">
+            <img *ngIf="!articles[0].picture_url" src="../../assets/Image-not-available1.jpg" class="top-img" alt="Image">
             <div class="on-top">
               <h1 class="display-5 fw-bold">{{articles[0].title}}</h1>
               <p class="col-md-12 fs-4">{{articles[0].subheading}}</p>
               <b class="created-date">{{articles[0].updated_at | timeAgo}} </b>
             </div>
-          <!-- <button class="btn btn-warning btn-lg" type="button">Example button</button> -->
           </div>
       </div>
       <div class="cnt">
           <div class="row articles-cont no-gutters">
-            <div *ngFor="let article of articles | slice:1" class="col mb-4">
-              <div class="card">
+            <div *ngFor="let article of articles" class="col mb-4">
+              <div class="card" (click)="goToArticle(article.id)">
                 <div class="card-cnt">
                   <img *ngIf="article.picture_url!=undefined" [src]="article.picture_url" class="card-img-top" alt="Image">
                   <img *ngIf="!article.picture_url" src="../../assets/Image-not-available1.jpg" class="card-img-top" alt="Image">
@@ -34,11 +49,11 @@
                 </div>
                 <div class="card-body">
                   <div class="row title-username-row">
-                    <div class="col col-auto">
+                    <div class="col-10">
                       <h2 class="card-title">{{ article.title }}</h2>
                     </div>
-                    <div class="col col-auto">
-                      <div class="">{{article.author.username}}</div>
+                    <div class="col-2">
+                      <div class="author">{{article.author.username}}</div>
                     </div>
                   </div>
                   <p class="card-text">{{ article.subheading }}</p>
@@ -46,15 +61,14 @@
               </div>
             </div>
             </div>
-            <div class="cnt">
+            <div *ngIf="articles.length == 0"><app-test></app-test></div>
+            <div class="spacer">
             </div>
       <footer class="py-3 my-4">
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a class="nav-link px-2 text-body-secondary">Other</a></li>
-            <li class="nav-item"><a class="nav-link px-2 text-body-secondary">About</a></li>
           </ul>
-          <p class="text-center text-body-secondary">© 2023 La Gazzetta dello Sport, Inc</p>
+          <p class="text-center text-body-secondary">© 2023 Secure Journal Design, Inc</p>
         </footer>
     </div>
   </div>
@@ -64,11 +78,5 @@
   <div (click)="modal.dismiss('Cross click')" class="exit"><i class="bi bi-x"></i></div>
   <app-login></app-login>
 </ng-template>
-
-<!-- <ng-template #register let-modal class="temp">
-  <div (click)="modal.dismiss('Cross click')" class="exit"><i class="bi bi-x"></i></div>
-  <app-register></app-register>
-</ng-template> -->
-
 
 

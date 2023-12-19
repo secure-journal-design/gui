@@ -6,14 +6,27 @@ export interface Author {
 }
 
 export interface Article {
-    article_id: number;
+    id: number;
     title: string;
     body: string;
     updated_at: string;
     topic: string;
     subheading: string;
     picture_url: String;
-    likes: number;
+    num_likes: number;
+    author: Author;
+
+}
+
+export interface ArticleDetail {
+    id: number;
+    title: string;
+    body: string;
+    updated_at: string;
+    topic: string;
+    subheading: string;
+    picture_url: String;
+    likes: Author[];
     author: Author;
 
 }

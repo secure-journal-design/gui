@@ -2,12 +2,31 @@
   margin-top: 5px;
 }
 
+.logo-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  margin-top: 15px;
+  font-size: xx-large;
+}
+
+.search-input {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 .sign-in-btn {
   margin-right: 10px;
   border-radius: 40px;
   padding: 12px;
   background-color: transparent;
   width: 100px;
+}
+
+.search-btn {
+  margin-right: 40px;
+  border-radius: 40px;
+  width: 150px;
+  padding: 12px;
 }
 
 .sign-up-btn {
@@ -42,7 +61,11 @@
 }
 
 .cnt {
-  min-height: 420px;
+  min-height: 100px;
+}
+
+.spacer {
+  min-height: 70vh;
 }
 
 .btn-warning {
@@ -50,11 +73,10 @@
 }
 
 .card {
-  width: max-content;
-  height: auto;
-  object-fit: cover;
+  width: 40vh;
   position: relative;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
@@ -63,12 +85,12 @@
 }
 
 .card-img-top {
-  min-height: 40vh;
-  max-height: 65vh;
   position: relative;
   object-fit:cover;
-  width: 50vh;
   border-bottom: 1px solid grey;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .top-img {
@@ -76,6 +98,12 @@
   object-fit: cover;
   max-height: 500px;
   border-radius: 30px;
+}
+
+.top-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: transparent;
 }
 
 .top-container:hover {
@@ -87,9 +115,10 @@
   position: absolute;
   bottom: 0;
   width: auto;
-  margin-left: 20px;
+  padding-left: 20px;
   margin-bottom: 40px;
   color: white;
+  width: 97%;
 }
 
 .top-container {
@@ -101,9 +130,9 @@
 }
 
 .created-date {
-  font-size: 17px;
+  font-size: 16px;
   float: right;
-  margin-right: 40px;
+  margin-right: 2%;
 }
 
 .card-cnt {
@@ -112,8 +141,7 @@
 }
 
 .topic,
-.date,
-.author {
+.date {
   position: absolute;
   padding: 5px;
   border-radius: 5px;
@@ -122,9 +150,9 @@
 .topic {
   top: 0;
   left: 0;
-  margin-left: 5px;
   margin-top: 5px;
-  background-color: #fff;
+  background-color: black;
+  color: white;
 }
 
 .date {
@@ -133,6 +161,16 @@
   margin-right: 5px;
   margin-bottom: 5px;
   background-color: aquamarine;
+  font-size: 12px;
+}
+
+.author {
+  font-weight: 500;
+  margin-top: 7px;
+}
+
+.card-text {
+  font-style: italic;
 }
 
 .title-username-row {
