@@ -5,23 +5,41 @@
       </a>
       <div class="row">
           <div class="d-flex">
-              <!-- <button class="btn btn-light sign-in-btn" (click)="open(login, register)" >Sign in</button> -->
+              <button class="btn btn-dark sign-up-btn" (click)="open(login)" >Sign in</button>
               <!-- <button class="btn btn-dark sign-up-btn" (click)="open(register,login)" >Sign up</button>  -->
           </div>
       </div>
   </nav>
   <div class="pg">
-      <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-          <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Dybala, altro stop: siamo al terzo stagionale, è già rimasto fuori 45 giorni</h1>
-          <p class="col-md-8 fs-4">Non si fermano gli infortuni dell'argentino: la sua partita con la Fiorentina è durata 25' per un problema al flessore.
-            Mou spera di recuperarlo almeno per il 23 dicembre, quando all'Olimpico arriverà il Napoli</p>
+      <div *ngIf="articles.length > 0" class="p-2 mb-4 bg-body-tertiary rounded-3 top-container">
+          <div class="container-fluid py-3 row ">
+            <img [src]="articles[0].picture_url" class="top-img" alt="Image">
+            <div class="on-top">
+              <h1 class="display-5 fw-bold">{{articles[0].title}}</h1>
+              <p class="col-md-8 fs-4">{{articles[0].subheading}}</p>
+            </div>
           <!-- <button class="btn btn-warning btn-lg" type="button">Example button</button> -->
           </div>
       </div>
       <div class="cnt">
           <div class="row">
-              <div class="col-sm-6 mb-3 mb-sm-0">
+            <div *ngFor="let article of articles | slice:1" class="col-sm-6 mb-3 mb-sm-0">
+              <div class="card">
+                <img [src]="article.picture_url" class="card-img-top" alt="Image">
+                <div class="card-body">
+                  <h2 class="card-title">{{ article.title }}</h2>
+                  <p class="card-text">{{ article.subheading }}</p>
+                  <p class="card-text">{{ article.body }}</p>
+                  <p class="card-text"><strong>Autore:</strong> {{ article.author.first_name }} {{ article.author.last_name }}</p>
+                  <p class="card-text"><strong>Ultimo aggiornamento:</strong> {{ article.updated_at }}</p>
+                  <p class="card-text"><strong>Topic:</strong> {{ article.topic }}</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted"><strong>Likes:</strong> {{ article.likes }}</small>
+                </div>
+              </div>
+            </div>
+              <!-- <div class="col-sm-6">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Lorem ipsum dolor</h5>
@@ -30,23 +48,10 @@
                       Maecenas lacinia turpis non condimentum feugiat. Suspendisse a dolor at sapien aliquam mollis.
                       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
                     </p>
-                    <!-- <a href="#" class="btn btn-outline-dark">Go somewhere</a> -->
+
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Lorem ipsum dolor</h5>
-                    <p class="card-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a felis quis ex pulvinar sagittis quis ut urna.
-                      Maecenas lacinia turpis non condimentum feugiat. Suspendisse a dolor at sapien aliquam mollis.
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    </p>
-                    <!-- <a href="#" class="btn btn-outline-warning">Go somewhere</a> -->
-                  </div>
-                </div>
-              </div>
+              </div> -->
             </div>
             <div class="cnt">
             </div>
@@ -58,15 +63,19 @@
           </ul>
           <p class="text-center text-body-secondary">© 2023 La Gazzetta dello Sport, Inc</p>
         </footer>
+    </div>
   </div>
 </div>
-<!--
+
 <ng-template #login let-modal class="temp">
   <div (click)="modal.dismiss('Cross click')" class="exit"><i class="bi bi-x"></i></div>
   <app-login></app-login>
-</ng-template> -->
+</ng-template>
 
 <!-- <ng-template #register let-modal class="temp">
   <div (click)="modal.dismiss('Cross click')" class="exit"><i class="bi bi-x"></i></div>
   <app-register></app-register>
 </ng-template> -->
+
+
+

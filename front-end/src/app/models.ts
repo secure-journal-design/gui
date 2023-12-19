@@ -11,7 +11,7 @@ export interface Article {
     updated_at: string;
     topic: string;
     subheading: string;
-    picture: String;
+    picture_url: String;
     likes: number;
     author: Author;
 

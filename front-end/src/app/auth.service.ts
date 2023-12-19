@@ -10,7 +10,7 @@ import { Author } from './models';
   providedIn: 'root'
 })
 export class AuthService {
-  readonly apiUrl = 'http://localhost:8000';
+  readonly apiUrl = 'http://localhost:8000/api/v1';
 
   constructor(
     private http: HttpClient,
@@ -35,7 +35,7 @@ export class AuthService {
   }
 
   login(form: any) {
-    return this.http.post(this.apiUrl + '/login', form, {
+    return this.http.post(this.apiUrl + '/auth/login', form, {
       withCredentials: true,
       observe: 'response',
       responseType: 'text',

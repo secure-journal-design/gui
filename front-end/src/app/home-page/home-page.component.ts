@@ -13,7 +13,7 @@ export class HomePageComponent {
   articles: Article[] = [];
 
 
-  constructor(private articleService: ArticleService){}
+  constructor(private articleService: ArticleService, private modalService: NgbModal ){}
 
   ngOnInit(): void {
 
@@ -21,6 +21,15 @@ export class HomePageComponent {
       console.log(data);
       this.articles = data;
       });
+    }
+
+    open(content : any) {
+      this.modalService.open(content, { centered: true  }).dismissed.subscribe(reason => {
+      })
+    }
+
+    ngOnDestroy(): void {
+      this.modalService.dismissAll();
     }
 
   }

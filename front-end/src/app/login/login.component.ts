@@ -38,15 +38,13 @@ export class LoginComponent {
     if (this.form?.valid) {
       this.authService.login(this.form?.getRawValue()).subscribe({
         next : (response) => {
+          console.log(response);
           this.authService.setData(true);
           this.alert.showSuccessAlert("Successfully logged in","Close",3000);
-          //localStorage.setItem("auth","1");
           this.wrong_credentials = false;
           this.modalService.dismissAll();
-          this.router.navigate(["/home-page"])
         },
         error : (e) => {
-          //this.alert.showErrorAlert("Wrong credentials","Close",5000);
           this.wrong_credentials = true;
         }
       });
