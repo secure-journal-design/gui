@@ -26,6 +26,51 @@
     min-height: 40vh;
 }
 
-.container {
-    text-align: center;
+.date {
+    font-style: italic;
+}
+
+.author-info *{
+    display: inline-block;
+}
+
+.author-name {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: black;
+    color: white;
+    margin-right: 8px;
+    border-radius: 10px;
+}
+
+.article-body {
+    line-height: 1.6;
+    font-size: large;
+    text-align: justify;
+}
+
+.article-subheading {
+    font-size: 20px;
+}
+
+img {
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-top: 8px;
+    max-width: 100%;
+}
+
+.topic {
+    margin-right: 8px;
+}
+
+.like-count {
+    float: right;
+    font-size: large;
+}
+
+.fa-solid {
+    font-size: x-large;
+    margin-bottom: 40px;
 }

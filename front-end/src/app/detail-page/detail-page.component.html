@@ -7,11 +7,17 @@
     <div class="pg">
         <div class="cnt">
             <div *ngIf="article" class="container">
+              <!--<i class="fa-solid fa-left-long"></i>-->
+              <div class="author-info">
+                <p class="author-name">{{article.author.username}}</p>
+                <p class="topic">{{article.topic}}</p>
+                <p class="date">{{article.updated_at | date}}</p>
+              </div>
                 <h1 class="article-title">{{article.title}}</h1>
                 <h2 class="article-subheading">{{article.subheading}}</h2>
                 <img class="article-img" [src]="article.picture_url" alt="Article Image">
-                <p>{{article.body}}</p>
-                <span class="like-count">{{article.likes.length}} likes</span>
+                <p class="article-body">{{article.body}}</p>
+                <span class="like-count">{{article.likes.length}} <i class="fas fa-hands-clapping"></i></span>
             </div>
               <div class="spacer">
               </div>

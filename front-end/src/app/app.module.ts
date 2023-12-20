@@ -16,7 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TimeAgoPipe } from './time-ago.pipe';
-import { TestComponent } from 'src/test/test.component';
+import { TestComponent } from './test/test.component';
 
 
 

@@ -17,7 +17,7 @@ export class ArticleService {
 
   searchByTopic(topic: string): Observable<any> {
     const params = { topic: topic };
-    return this.http.get<any>(this.apiUrl + 'by_topic/', { params: params });
+    return this.http.get<any>(this.apiUrl + 'by-topic/', { params: params });
   }
 
   getArticle(id: number): Observable<any> {
